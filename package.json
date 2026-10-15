@@ -1,0 +1,29 @@
+{
+  "name": "petstore-api-automation",
+  "version": "1.0.0",
+  "description": "API automation for Swagger Petstore (Pet: POST /pet, GET /pet/findByStatus, DELETE /pet/{id})",
+  "private": true,
+  "scripts": {
+    "test": "jest --runInBand",
+    "test:post": "jest --runInBand tests/post-pet.test.js",
+    "test:get": "jest --runInBand tests/find-by-status.test.js",
+    "test:delete": "jest --runInBand tests/delete-pet.test.js",
+    "report": "node -e \"require('child_process').exec(process.platform==='win32'?'start report\\\\report.html':(process.platform==='darwin'?'open':'xdg-open')+' report/report.html')\""
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testTimeout": 30000,
+    "testMatch": [
+      "**/tests/**/*.test.js"
+    ],
+    "reporters": [
+      "<rootDir>/reporters/summary-reporter.js"
+    ]
+  }
+}
